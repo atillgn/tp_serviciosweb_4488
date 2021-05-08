@@ -1,0 +1,24 @@
+<router-outlet>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark p-2">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <img src="assets/img/logo.png" alt="" height="60px">
+        <div class="collapse navbar-collapse" id="navbarNav"> 
+            <ul class="navbar-nav">
+                <li class="nav-item p-3">
+                    <a [routerLink]="['peliculas']" class="fs-5">Peliculas</a>
+                </li>
+                <li class="nav-item p-3">
+                    <a [routerLink]="['cotizacion']" class="fs-5">Cotizaci&oacute;n</a>
+                </li>
+                <li class="nav-item p-3">
+                    <a [routerLink]="['translate']" class="fs-5">Traductor</a>
+                </li>
+                <li class="nav-item p-3">
+                    <a [routerLink]="['estadisticas']" class="fs-5">Estadisticas</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</router-outlet>

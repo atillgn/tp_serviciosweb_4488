@@ -1,0 +1,82 @@
+<section>
+    <div class="container mb-3">
+        <form action="" #traductorForm="ngForm" name="formulario">
+            <div class="row row-cols-2 row-cols-md-4 mb-3 mt-3">
+                <div class="col">
+                    <button type="submit" class="p-2 form-control btn-secondary mb-1 or" (click)="asignaror('it')">
+                        <img src="" alt="" height="10px">
+                        Italiano
+                    </button>
+                </div>
+                <div class="col">
+                    <button type="submit" class="p-2 form-control btn-secondary or" (click)="asignaror('fr')">
+                        <img src="" alt="" height="10px">
+                        Franc&eacute;s
+                    </button>
+                </div>
+                <div class="col">
+                    <button type="submit" class="p-2 form-control btn-secondary or" (click)="asignaror('en')">
+                        <img src="" alt="" height="10px">
+                        Ingl&eacute;s
+                    </button>
+                </div>
+                <div class="col">
+                    <button type="submit" class="p-2 form-control btn-secondary or" (click)="asignaror('es')">
+                        <img src="" alt="" height="10px">
+                        Español
+                    </button>
+                </div>
+            </div>
+            <textarea name="" id="" rows="10" class="form-control p-2" placeholder="Escribe un texto" [(ngModel)]="traduccion.valor" name="text" required #text="ngModel"></textarea>
+            <div *ngIf="text.invalid && (text.dirty || text.touched)" class="alert alert-danger">
+                <div *ngIf="text.errors.required">Escriba un texto</div>
+            </div> 
+            <div class="alert alert-danger" *ngIf="traduccion.origen==traduccion.destino">No puede elegir el mismo idioma</div>
+            <div class="row row-cols-2 row-cols-md-4 mb-3 mt-3">
+                <div class="col">
+                    <button type="submit" class="p-2 form-control btn-success mb-1 des" (click)="asignardes('it')">
+                        <img src="" alt="" height="10px">
+                        Italiano
+                    </button>
+                </div>
+                <div class="col">
+                    <button type="submit" class="p-2 form-control btn-success des" (click)="asignardes('fr')">
+                        <img src="" alt="" height="10px">
+                        Franc&eacute;s
+                    </button>
+                </div>
+                <div class="col">
+                    <button type="submit" class="p-2 form-control btn-success des" (click)="asignardes('en')">
+                        <img src="" alt="" height="10px">
+                        Ingl&eacute;s
+                    </button>
+                </div>
+                <div class="col">
+                    <button type="submit" class="p-2 form-control btn-success des" (click)="asignardes('es')">
+                        <img src="" alt="" height="10px">
+                        Español
+                    </button>
+                </div>
+            </div>
+            <button type="submit" class="btn-primary p-2 mb-3 form-control" (click)="traducir()" [disabled]="!traductorForm.form.valid">TRADUCIR</button>
+            <textarea name="result" id="" rows="10" class="form-control p-2" placeholder="Traducción" disabled >{{resultado}}</textarea>
+            <div class="row mt-2">
+                <div class="col-4">
+                    <button type="button" class="btn-info form-control">
+                        <i class="icon icon-files-empty" style="font-size: 40px;"></i>
+                    </button>
+                </div>
+                <div class="col-4">
+                    <button type="button" class="btn-info form-control" >
+                        <i class="icon icon-file-empty" style="font-size: 40px;"></i>
+                    </button>
+                </div>
+                <div class="col-4">
+                    <button type="button" class="btn-info form-control">
+                        <i class="icon icon-cross" style="font-size: 40px;"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>

@@ -1,0 +1,75 @@
+<section class="m-4">
+    <div class="row">
+        <div class="col-md-8 d-none d-md-block">
+            <div class="table-responsive-lg">
+                <table class="table table-secondary table-striped">
+                    <thead class="table-dark">
+                        <tr>
+                            <th colspan="7" class="text-center">Conversor de Divisas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-center">
+                            <th></th>
+                            <th><img src="" alt="" height="20px"> USD</th>
+                            <th><img src="" alt="" height="20px"> EUR</th>
+                            <th><img src="" alt="" height="20px"> GBP</th>
+                        </tr>
+                        <tr class="text-center">
+                            <th>USD <br> Inverse</th>
+                            <th>1.00 <br> 1.00</th>
+                            <th>0.83 <br> 1.14</th>
+                            <th>0.72 <br> 1.38</th>
+                        </tr>
+                        <tr class="text-center">
+                            <th>EUR <br> Inverse</th>
+                            <th>1.14 <br> 0.83</th>
+                            <th>1.00 <br> 1.00</th>
+                            <th>0.86 <br> 1.14</th>
+                        </tr>
+                        <tr class="text-center">
+                            <th>GBP <br> Inverse</th>
+                            <th>1.38 <br> 0.72</th>
+                            <th>1.14 <br> 0.86</th>
+                            <th>1.00 <br> 1.00</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <form action="" #conversorForm="ngForm">
+                <div class="">
+                    <label for="cant">Cantidad: </label>
+                    <input type="number" id="cant" class="form-control" name="cant" [(ngModel)]="transaccion.cantidad" required #cant="ngModel" appValidacion>
+                    <div *ngIf="cant.invalid && (cant.dirty || cant.touched)" class="alert alert-danger">
+                        <div *ngIf="cant.errors.required">Ingrese un número</div>
+                        <div *ngIf="cant.errors.sinCaracterEspecial">No se permiten caracteres especiales.</div>
+                    </div> 
+                </div>
+                <div>
+                    <label for="desde">De</label>
+                    <select name="desde" id="desde" class="form-select" [(ngModel)]="transaccion.desde">
+                        <option value="USD">USD Dolares EEUU</option>
+                        <option value="EUR">EUR Euros</option>
+                        <option value="GBP">GBP Libras Esterlinas</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="hasta">A</label>
+                    <select name="hasta" id="hasta" class="form-select" [(ngModel)]="transaccion.hasta">
+                        <option value="USD">USD Dolares EEUU</option>
+                        <option value="EUR">EUR Euros</option>
+                        <option value="GBP">GBP Libras Esterlinas</option>
+                    </select>
+                </div>
+                <div>
+                    <output class="form-control mt-3 mb-3" name="resultado">.{{resultado}}</output>
+                </div>
+                <button type="submit" class="btn-primary p-2 form-control" (click)="convertirValor()" name="convertir" [disabled]="!conversorForm.form.valid">Convertir
+                    <i class="icon icon-arrow-right2"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+</section>

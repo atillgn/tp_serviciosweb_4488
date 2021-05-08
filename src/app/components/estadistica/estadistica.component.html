@@ -1,0 +1,75 @@
+<section>
+    <div class="col-7 m-auto">
+        <form action="">
+            <h2 class="m-2 text-center mt-3">Estad&iacute;sticas COVID</h2>
+            <select name="pais" id="" class="form-select m-2" [(ngModel)]="tipo" (ngModelChange)="aux()">
+                <option  value="t">Todos</option>
+                <option  *ngFor="let item of estadisticas" value="{{item.pais}}" >{{item.pais}}</option>
+            </select>
+            <div class="m-2">
+                <input type="checkbox" name="cp" id="cp" class="form-check-input" (change)="change('ccon')">
+                <label for="cp">Casos Confirmados</label>
+            </div>
+            <div class="m-2">
+                <input type="checkbox" name="cc" id="cc" class="form-check-input" (change)="change('ccur')">
+                <label for="cc">Casos Curados</label>
+            </div>
+            <div class="m-2">
+                <input type="checkbox" name="cf" id="cf" class="form-check-input" (change)="change('cfa')">
+                <label for="cf">Casos Fallecidos</label>
+            </div>
+            <button type="submit" class="btn-primary form-control m-2" (click)="confirmar()">Consultar</button>
+        </form>
+    </div>
+    <div class="col-10 m-auto">
+        <div class="table-responsive-md">
+            <table class="table table-secondary table-striped mt-5" [mfData]="estadisticas" #mf="mfDataTable" [mfRowsOnPage]="10">
+                <thead class="table-dark text-center">
+                    <tr *ngIf="tipor=='t'">
+                        <th>
+                            <mfDefaultSorter by="pais">Ubicaci&oacute;n</mfDefaultSorter>
+                        </th>
+                        <th *ngIf="cconr">
+                            <mfDefaultSorter by="casos_totales">Casos confirmados</mfDefaultSorter>
+                        </th>
+                        <th *ngIf="ccurr">
+                            <mfDefaultSorter by="recuperados_totales">Curados</mfDefaultSorter>
+                        </th>
+                        <th *ngIf="cfar">
+                            <mfDefaultSorter by="muertes_totales">Fallecidos</mfDefaultSorter>
+                        </th>
+                    </tr>
+                    <tr *ngIf="tipor!='t' && tipor!='x'">
+                        <th>Ubicaci&oacute;n</th>
+                        <th *ngIf="cconr">Casos confirmados</th>
+                        <th *ngIf="ccurr">Curados</th>
+                        <th *ngIf="cfar">Fallecidos</th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="tipor=='t'" class="text-center">
+                    <tr  *ngFor="let item of mf.data">
+                        <th>{{item.pais}}</th>
+                        <th *ngIf="cconr">{{item.casos_totales}}</th>
+                        <th *ngIf="ccurr">{{item.recuperados_totales}}</th>
+                        <th *ngIf="cfar">{{item.muertes_totales}}</th>
+                    </tr>
+                </tbody>
+                <tbody *ngIf="tipor!='t' && tipor!='x'" class="text-center">
+                    <tr  *ngFor="let item of mf.data">
+                        <th *ngIf="tipor==item.pais">{{item.pais}}</th>
+                        <th *ngIf="tipor==item.pais && cconr">{{item.casos_totales}}</th>
+                        <th *ngIf="tipor==item.pais && ccurr">{{item.recuperados_totales}}</th>
+                        <th *ngIf="tipor==item.pais && cfar">{{item.muertes_totales}}</th>
+                    </tr>
+                </tbody>
+                <tfoot *ngIf="tipor=='t'">
+                    <tr>
+                        <td colspan="4">
+                            <mfBootstrapPaginator></mfBootstrapPaginator>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</section>

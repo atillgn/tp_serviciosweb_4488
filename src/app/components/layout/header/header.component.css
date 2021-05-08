@@ -1,0 +1,13 @@
+li a{
+    text-decoration: none;
+    color: blue;
+    padding: 10px;
+}
+li a:hover{
+    background: rgb(49, 49, 49);
+    border-radius: 2px;
+}
+li a:focus{
+    background: rgb(49, 49, 49);
+    border-radius: 2px;
+}

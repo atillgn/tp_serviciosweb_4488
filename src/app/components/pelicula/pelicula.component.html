@@ -1,0 +1,26 @@
+<section class="m-2">
+    <div class="row">
+        <div class="col-8">
+            <div class="row row-cols-2 row-cols-md-3">
+                <div class="col" *ngFor="let item of peliculas">
+                    <div class="card m-2">
+                        <div class="card-header">
+                            <img src="{{item.img}}" alt="" class="card-img-bottom">
+                        </div>
+                        <div class="card-body text-secondary">
+                            <h5 class="card-title">{{item.titulo}}</h5>
+                            <p class="card-text">{{item.desc}}</p>
+                            <p class="card-text">{{item.largo}}</p>
+                            <a href="{{item.trailer}}">Trailer</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card m-2">
+                <img src="assets/img/anun.jpg" class="card-img" alt="">
+            </div>
+        </div>
+    </div>
+</section>
