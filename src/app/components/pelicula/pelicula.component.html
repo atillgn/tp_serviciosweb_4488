@@ -12,6 +12,9 @@
                             <p class="card-text">{{item.desc}}</p>
                             <p class="card-text">{{item.largo}}</p>
                             <a href="{{item.trailer}}">Trailer</a>
+                            <select>
+                                <option *ngFor="let it of item.actores">{{it}}</option>
+                            </select>
                         </div>
                     </div>
                 </div>
