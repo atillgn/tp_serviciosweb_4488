@@ -10,11 +10,12 @@
                         <div class="card-body text-secondary">
                             <h5 class="card-title">{{item.titulo}}</h5>
                             <p class="card-text">{{item.desc}}</p>
-                            <p class="card-text">{{item.largo}}</p>
-                            <a href="{{item.trailer}}">Trailer</a>
-                            <select>
-                                <option *ngFor="let it of item.actores">{{it}}</option>
+                            <select class="form-select mb-3">
+                                <option value="" class="">Actores</option>
+                                <option *ngFor="let it of item.actores" class="bg-light" disabled>{{it}}</option>
                             </select>
+                            <p class="card-text">Duraci&oacute;n: {{item.largo}}</p>
+                            <a href="{{item.trailer}}" class="text-decoration-none">Trailer</a>
                         </div>
                     </div>
                 </div>
