@@ -16,6 +16,12 @@ export class CotizacionComponent implements OnInit {
   }
   ngOnInit(): void {
   }
+  modificard(aux:string){
+    this.transaccion.desde=aux;
+  }
+  modificarh(aux:string){
+    this.transaccion.hasta=aux;
+  }
 
   convertirValor(){
     this.ConversorService.convertir(this.transaccion).subscribe(

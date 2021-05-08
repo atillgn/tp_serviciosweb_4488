@@ -12,27 +12,27 @@
                         <tr class="text-center">
                             <th></th>
                             <th></th>
-                            <th><img src="assets/img/EEUU.jpg" alt="" height="20px"> USD</th>
-                            <th><img src="assets/img/UE.jpg" alt="" height="20px"> EUR</th>
-                            <th><img src="assets/img/inglaterra.png" alt="" height="20px"> GBP</th>
+                            <th (click)="modificarh('USD')"><img src="assets/img/EEUU.jpg" alt="" height="20px"> USD</th>
+                            <th (click)="modificarh('EUR')"><img src="assets/img/UE.jpg" alt="" height="20px"> EUR</th>
+                            <th (click)="modificarh('GBP')"><img src="assets/img/inglaterra.png" alt="" height="20px"> GBP</th>
                         </tr>
                         <tr class="text-center">
-                            <th class="text-end"><img src="assets/img/EEUU.jpg" alt="" height="20px"></th>
-                            <th class="text-start">USD <br> Inverse</th>
+                            <th class="text-end" (click)="modificard('USD')"><img src="assets/img/EEUU.jpg" alt="" height="20px"></th>
+                            <th class="text-start" (click)="modificard('USD')">USD <br> Inverse</th>
                             <th>1.00 <br> 1.00</th>
                             <th>0.83 <br> 1.14</th>
                             <th>0.72 <br> 1.38</th>
                         </tr>
                         <tr class="text-center">
-                            <th class="text-end"><img src="assets/img/UE.jpg" alt="" height="20px"></th>
-                            <th class="text-start">EUR <br> Inverse</th>
+                            <th class="text-end" (click)="modificard('EUR')"><img src="assets/img/UE.jpg" alt="" height="20px"></th>
+                            <th class="text-start" (click)="modificard('EUR')">EUR <br> Inverse</th>
                             <th>1.14 <br> 0.83</th>
                             <th>1.00 <br> 1.00</th>
                             <th>0.86 <br> 1.14</th>
                         </tr>
                         <tr class="text-center">
-                            <th class="text-end"><img src="assets/img/inglaterra.png" alt="" height="20px"></th>
-                            <th class="text-start">GBP <br> Inverse</th>
+                            <th class="text-end" (click)="modificard('GBP')"><img src="assets/img/inglaterra.png" alt="" height="20px"></th>
+                            <th class="text-start" (click)="modificard('GBP')">GBP <br> Inverse</th>
                             <th>1.38 <br> 0.72</th>
                             <th>1.14 <br> 0.86</th>
                             <th>1.00 <br> 1.00</th>
@@ -43,6 +43,8 @@
         </div>
         <div class="col-md-4">
             <form action="" #conversorForm="ngForm">
+                <fieldset>
+                    <legend>Conversor</legend>
                 <div class="">
                     <label for="cant">Cantidad: </label>
                     <input type="number" id="cant" class="form-control" name="cant" [(ngModel)]="transaccion.cantidad" required #cant="ngModel" appValidacion>
@@ -73,6 +75,7 @@
                 <button type="submit" class="btn-primary p-2 form-control" (click)="convertirValor()" name="convertir" [disabled]="!conversorForm.form.valid">Convertir
                     <i class="icon icon-arrow-right2"></i>
                 </button>
+                </fieldset>
             </form>
         </div>
     </div>
