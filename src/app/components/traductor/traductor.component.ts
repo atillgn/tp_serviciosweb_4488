@@ -34,4 +34,8 @@ export class TraductorComponent implements OnInit {
       (error)=>{ alert("Error en la petición");}
     )
   }
+
+  eliminar(){
+    this.resultado="";
+  }
 }
