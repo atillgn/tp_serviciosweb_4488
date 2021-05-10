@@ -42,7 +42,7 @@
             </div>
         </div>
         <div class="col-md-4">
-            <form action="" #conversorForm="ngForm">
+            <form action="" #conversorForm="ngForm" class="container pb-2 rounded-3">
                 <fieldset>
                     <legend>Conversor</legend>
                 <div class="">
@@ -54,7 +54,7 @@
                     </div> 
                 </div>
                 <div>
-                    <label for="desde">De</label>
+                    <label for="desde">De: </label>
                     <select name="desde" id="desde" class="form-select" [(ngModel)]="transaccion.desde">
                         <option value="USD">USD Dolares EEUU</option>
                         <option value="EUR">EUR Euros</option>
@@ -62,17 +62,20 @@
                     </select>
                 </div>
                 <div>
-                    <label for="hasta">A</label>
+                    <label for="hasta">A: </label>
                     <select name="hasta" id="hasta" class="form-select" [(ngModel)]="transaccion.hasta">
                         <option value="USD">USD Dolares EEUU</option>
                         <option value="EUR">EUR Euros</option>
                         <option value="GBP">GBP Libras Esterlinas</option>
                     </select>
                 </div>
+                <div *ngIf="transaccion.desde == transaccion.hasta" class="alert alert-danger">
+                    <div>No puede convertir al mismo tipo de cambio</div>
+                </div> 
                 <div>
                     <output class="form-control mt-3 mb-3" name="resultado">.{{resultado}}</output>
                 </div>
-                <button type="submit" class="btn-primary p-2 form-control" (click)="convertirValor()" name="convertir" [disabled]="!conversorForm.form.valid">Convertir
+                <button type="submit" class="btn-primary p-2 form-control" (click)="convertirValor()" name="convertir" [disabled]="!conversorForm.form.valid && transaccion.desde == transaccion.hasta">Convertir
                     <i class="icon icon-arrow-right2"></i>
                 </button>
                 </fieldset>

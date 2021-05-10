@@ -2,12 +2,15 @@ li a{
     text-decoration: none;
     color: blue;
     padding: 10px;
+    border-bottom: solid 3px rgb(39, 37, 37);
 }
 li a:hover{
-    background: rgb(49, 49, 49);
-    border-radius: 2px;
+    /*background: rgb(49, 49, 49);
+    border-radius: 2px;*/
+    border-bottom: solid 3px blue;
 }
 li a:focus{
-    background: rgb(49, 49, 49);
-    border-radius: 2px;
+    /*background: rgb(49, 49, 49);
+    border-radius: 2px;*/
+    border-bottom: solid 3px blue;
 }

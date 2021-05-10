@@ -1,0 +1,7 @@
+select{
+    background: rgb(226, 226, 226);
+    border: solid 1px rgb(172, 172, 172);
+}
+select option{
+    background: rgb(231, 230, 230);
+}
