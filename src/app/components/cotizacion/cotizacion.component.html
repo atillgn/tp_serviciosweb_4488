@@ -75,7 +75,7 @@
                 <div>
                     <output class="form-control mt-3 mb-3" name="resultado">.{{resultado}}</output>
                 </div>
-                <button type="submit" class="btn-primary p-2 form-control" (click)="convertirValor()" name="convertir" [disabled]="!conversorForm.form.valid && transaccion.desde == transaccion.hasta">Convertir
+                <button type="submit" class="btn-primary p-2 form-control" (click)="convertirValor()" name="convertir" [disabled]="!conversorForm.form.valid || transaccion.desde == transaccion.hasta">Convertir
                     <i class="icon icon-arrow-right2"></i>
                 </button>
                 </fieldset>
